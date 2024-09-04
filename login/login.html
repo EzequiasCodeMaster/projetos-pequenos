@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            
+        }
+    </style>
+
+    <form action="login.html">
+        <div>
+            <label for="cpf">Digite Seu Cpf</label>
+            <input type="text" name="cpf" id="cpf"maxlengedth='14' pattern="/d{3}/./d{3}/./d{3}/-d{2}" placeholder="123.456.789-09" required>
+        </div>
+
+        <div>
+            <label for="senha">Digite sua senha</label>
+            <input type="password" name="senha" id="senha">
+            
+        </div>
+    </form>
+    <form action="login.html"></form>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+
+    <script>
+        // Aplica a máscara de CPF ao campo de entrada
+        $(document).ready(function(){
+            $('#cpf').inputmask('999.999.999-99');
+        });
+      </script>
+</head>
+<body>
+    
+</body>
+</html>

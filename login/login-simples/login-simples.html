@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="login">
+            <div class="login2" onclick="startGame()"><a href="login"><h1>login</h1></a></div>
+            <div class="cadastro"><a href=""><h1>Cadastro</h1></a></div>
+        </div>
+    </header>
+    <main>
+        <iframe class="clogin" src="#" frameborder="0"></iframe>
+    </main>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Verificar login e senha
+            if (username === 'vitoria gonçalves carrero' && password === '06012024') {
+                window.location.href = 'welcome.html';  // Carregar a próxima página
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        }
+    </script>
+    
+</body>
+</html>
