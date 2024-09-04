@@ -36,15 +36,23 @@
         height: 50%;
     }
    section #imagem {
-        float: left;
+        float: right;
         width: 50%;
         height: 100vh;
         background-position: center top;
     }
 
-    #formulario {
+    .formulario {
         float: right;
         width: 50%;
+    }
+
+    .formulario h1 {
+        font-size: 2em;
+    }
+    
+    .formulario p {
+        font-size: 1.2em;
     }
 }
 
