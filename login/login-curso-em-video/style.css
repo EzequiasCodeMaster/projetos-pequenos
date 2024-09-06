@@ -75,9 +75,11 @@ section .formulario {
 .campo {
     display: block;
     height: 40px;
-background-color: #495473;
+background-color: #4E7329;
 margin: 10px ;
 border-radius: 5px;
+  margin-left: 10px;
+    border: 1px solid #4E7329;
 }
 
 label {
@@ -89,6 +91,8 @@ label {
     flex-direction: column;
     flex-direction: center;
 }
+
+
 
 button {
     display: block;
@@ -106,4 +110,26 @@ button {
 button:hover {
     background-color: #658C2A;
     color: black;
+}
+
+span {
+    color: white;
+   
+    font-size: 2em;
+    width: 41px;
+    height: 40px;
+    padding: 10px;
+}
+
+input {
+    background-color: #463D40;
+    width: 80%;
+    height: 100%;
+    font-size: 1em;
+    border-radius: 10px;
+    transform: translatey(-9px);
+}
+
+input:focus-within {
+    background-color: #463D40;
 }
