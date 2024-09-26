@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+        .tabelapai {
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            max-height: 300px;
+            border: 1px solid rgb(255, 255, 255);
+        }
+        table {
+            width: 500px;
+            border-collapse: collapse;
+            border: 1px solid;
+        }
+        tbody {
+            display: block;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        thead, tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        td, th {
+            padding: 10px;
+            border: 1px solid rgba(241, 241, 241, 0.651);
+            text-align: left;
+        }
+        
+        thead th {
+            background-color: rgba(0, 0, 0, 0.116);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        tr {
+            background-color: rgba(59, 26, 26, 0.26);
+        }
+
+        tr:hover {
+            background-color: azure;
+            color: black;
+            border: 2px solid blue;
+        }
+
+        /* Estilização da barra de pesquisa */
+        .search-container {
+            position: fixed;
+            top: 0;
+            right: 0px;
+            width: 30%; /* Ajuste conforme necessário */
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 40px 10px 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .search-container i {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="tabelapai">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Pesquisar..." class="search-input">
+            <i class="fas fa-search"></i>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Cidade</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr>
+                    <td>gabriel</td>
+                    <td>25 anos</td>
+                    <td>São carlos</td>
+                </tr>
+                <tr>
+                    <td>João</td>
+                    <td>25 Anos</td>
+                    <td>São Paulo</td>
+                </tr>
+                <tr>
+                    <td>Ana</td>
+                    <td>30 Anos</td>
+                    <td>Rio de Janeiro</td>
+                    <tr>
+                        <td>João</td>
+                        <td>25 Anos</td>
+                        <td>São Paulo</td>
+                    </tr>
+                    <tr>
+                        <td>Ana</td>
+                        <td>30 Anos</td>
+                        <td>Rio de Janeiro</td>
+                    </tr>
+                    <tr>
+                        <td>Marcos</td>
+                        <td>28 Anos</td>
+                        <td>Belo Horizonte</td>
+                    </tr>
+                    <tr>
+                        <td>Paula</td>
+                        <td>22 Anos</td>
+                        <td>Curitiba</td>
+                    </tr>
+                    <tr>
+                        <td>Lucas</td>
+                        <td>35 Anos</td>
+                        <td>Porto Alegre</td>
+                    </tr>
+                    <tr>
+                        <td>Camila</td>
+                        <td>27 Anos</td>
+                        <td>Brasília</td>
+                    </tr>
+                    <tr>
+                        <td>Mateus</td>
+                        <td>24 Anos</td>
+                        <td>Salvador</td>
+                    </tr>
+                    <tr>
+                        <td>Julia</td>
+                        <td>29 Anos</td>
+                        <td>Florianópolis</td>
+                    </tr>
+                    <tr>
+                        <td>Henrique</td>
+                        <td>31 Anos</td>
+                        <td>Recife</td>
+                    </tr>
+                    <tr>
+                        <td>Beatriz</td>
+                        <td>26 Anos</td>
+                        <td>Fortaleza</td>
+                    </tr>
+                    <tr>
+                        <td>Rodrigo</td>
+                        <td>33 Anos</td>
+                        <td>Manaus</td>
+                    </tr>
+                    <tr>
+                        <td>Larissa</td>
+                        <td>21 Anos</td>
+                        <td>Goiânia</td>
+                    </tr>
+                    <tr>
+                        <td>Felipe</td>
+                        <td>32 Anos</td>
+                        <td>Natal</td>
+                    </tr>
+                    <tr>
+                        <td>Aline</td>
+                        <td>23 Anos</td>
+                        <td>João Pessoa</td>
+                    </tr>
+                    <tr>
+                        <td>Eduardo</td>
+                        <td>34 Anos</td>
+                        <td>Maceió</td>
+                    </tr>
+                    <tr>
+                        <td>Carolina</td>
+                        <td>20 Anos</td>
+                        <td>Teresina</td>
+                    </tr>
+                    <tr>
+                        <td>Renato</td>
+                        <td>36 Anos</td>
+                        <td>Vitória</td>
+                    </tr>
+                    <tr>
+                        <td>Luana</td>
+                        <td>19 Anos</td>
+                        <td>São Luís</td>
+                    </tr>
+                    <tr>
+                        <td>Diego</td>
+                        <td>40 Anos</td>
+                        <td>Belém</td>
+                    </tr>
+                    <tr>
+                        <td>Patrícia</td>
+                        <td>38 Anos</td>
+                        <td>Campo Grande</td>
+                    </tr>
+                    <tr>
+                        <td>Gustavo</td>
+                        <td>37 Anos</td>
+                        <td>Aracaju</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Luana</td>
+                        <td>19 Anos</td>
+                        <td>São Luís</td>
+                    </tr>
+                    <tr>
+                        <td>Gabriel</td>
+                        <td>25 Anos</td>
+                        <td>São Carlos</td>
+                    </tr>
+                    <tr>
+                        <td>João</td>
+                        <td>25 Anos</td>
+                        <td>São Paulo</td>
+                    </tr>
+                    <tr>
+                        <td>Ana</td>
+                        <td>30 Anos</td>
+                        <td>Rio de Janeiro</td>
+                    </tr>
+                    <tr>
+                        <td>Marcos</td>
+                        <td>28 Anos</td>
+                        <td>Belo Horizonte</td>
+                    </tr>
+                    <tr>
+                        <td>Paula</td>
+                        <td>22 Anos</td>
+                        <td>Curitiba</td>
+                    </tr>
+                    <tr>
+                        <td>Lucas</td>
+                        <td>35 Anos</td>
+                        <td>Porto Alegre</td>
+                    </tr>
+                    <tr>
+                        <td>Camila</td>
+                        <td>27 Anos</td>
+                        <td>Brasília</td>
+                    </tr>
+                    <tr>
+                        <td>Mateus</td>
+                        <td>24 Anos</td>
+                        <td>Salvador</td>
+                    </tr>
+                    <tr>
+                        <td>Julia</td>
+                        <td>29 Anos</td>
+                        <td>Florianópolis</td>
+                    </tr>
+                    <tr>
+                        <td>Henrique</td>
+                        <td>31 Anos</td>
+                        <td>Recife</td>
+                    </tr>
+                    <tr>
+                        <td>Beatriz</td>
+                        <td>26 Anos</td>
+                        <td>Fortaleza</td>
+                    </tr>
+                    <tr>
+                        <td>Rodrigo</td>
+                        <td>33 Anos</td>
+                        <td>Manaus</td>
+                    </tr>
+                    <tr>
+                        <td>Larissa</td>
+                        <td>21 Anos</td>
+                        <td>Goiânia</td>
+                    </tr>
+                    <tr>
+                        <td>Felipe</td>
+                        <td>32 Anos</td>
+                        <td>Natal</td>
+                    </tr>
+                    <tr>
+                        <td>Aline</td>
+                        <td>23 Anos</td>
+                        <td>João Pessoa</td>
+                    </tr>
+                    <tr>
+                        <td>Eduardo</td>
+                        <td>34 Anos</td>
+                        <td>Maceió</td>
+                    </tr>
+                    <tr>
+                        <td>Carolina</td>
+                        <td>20 Anos</td>
+                        <td>Teresina</td>
+                    </tr>
+                    <tr>
+                        <td>Renato</td>
+                        <td>36 Anos</td>
+                        <td>Vitória</td>
+                    </tr>
+                    <tr>
+                        <td>Diego</td>
+                        <td>40 Anos</td>
+                        <td>Belém</td>
+                    </tr>
+                    <tr>
+                        <td>Patrícia</td>
+                        <td>38 Anos</td>
+                        <td>Campo Grande</td>
+                    </tr>
+                    <tr>
+                        <td>Gustavo</td>
+                        <td>37 Anos</td>
+                        <td>Aracaju</td>
+                    </tr>
+                    <tr>
+                        <td>Mariana</td>
+                        <td>22 Anos</td>
+                        <td>São Paulo</td>
+                    </tr>
+                    <tr>
+                        <td>Fábio</td>
+                        <td>28 Anos</td>
+                        <td>Rio de Janeiro</td>
+                    </tr>
+                    <tr>
+                        <td>Sofia</td>
+                        <td>24 Anos</td>
+                        <td>Curitiba</td>
+                    </tr>
+                    <tr>
+                        <td>Cláudio</td>
+                        <td>29 Anos</td>
+                        <td>Fortaleza</td>
+                    </tr>
+                    <tr>
+                        <td>Fernanda</td>
+                        <td>31 Anos</td>
+                        <td>Salvador</td>
+                    </tr>
+                    <tr>
+                        <td>Ricardo</td>
+                        <td>34 Anos</td>
+                        <td>Belo Horizonte</td>
+                    </tr>
+                    <tr>
+                        <td>Simone</td>
+                        <td>23 Anos</td>
+                        <td>Porto Alegre</td>
+                    </tr>
+                    <tr>
+                        <td>Tiago</td>
+                        <td>27 Anos</td>
+                        <td>Manaus</td>
+                    </tr>
+                    <tr>
+                        <td>Graça</td>
+                        <td>35 Anos</td>
+                        <td>Brasília</td>
+                    </tr>
+                    <tr>
+                        <td>Rafael</td>
+                        <td>30 Anos</td>
+                        <td>Goiânia</td>
+                    </tr>
+                    <tr>
+                        <td>Isabela</td>
+                        <td>26 Anos</td>
+                        <td>Florianópolis</td>
+                    </tr>
+                    <tr>
+                        <td>Natália</td>
+                        <td>19 Anos</td>
+                        <td>Rio de Janeiro</td>
+                    </tr>
+                    <tr>
+                        <td>Leonardo</td>
+                        <td>21 Anos</td>
+                        <td>Natal</td>
+                    </tr>
+                    <tr>
+                        <td>Vanessa</td>
+                        <td>30 Anos</td>
+                        <td>São Paulo</td>
+                    </tr>
+                    <tr>
+                        <td>Vinícius</td>
+                        <td>38 Anos</td>
+                        <td>Recife</td>
+                    </tr>
+                    <tr>
+                        <td>Marcel</td>
+                        <td>32 Anos</td>
+                        <td>Campo Grande</td>
+                    </tr>
+                    <tr>
+                        <td>Eduarda</td>
+                        <td>29 Anos</td>
+                        <td>Aracaju</td>
+                    </tr>
+                    <tr>
+                        <td>Felipe</td>
+                        <td>25 Anos</td>
+                        <td>São Luís</td>
+                    </tr>
+                    <tr>
+                        <td>Gabriela</td>
+                        <td>22 Anos</td>
+                        <td>Teresina</td>
+                    </tr>
+                    <tr>
+                        <td>Márcio</td>
+                        <td>36 Anos</td>
+                        <td>Fortaleza</td>
+                    </tr>
+                    <tr>
+                        <td>Bianca</td>
+                        <td>28 Anos</td>
+                        <td>Manaus</td>
+                    </tr>
+                    <tr>
+                        <td>Rodolfo</td>
+                        <td>30 Anos</td>
+                        <td>Salvador</td>
+                    </tr>
+                    <tr>
+                        <td>Adriana</td>
+                        <td>34 Anos</td>
+                        <td>Belo Horizonte</td>
+                    </tr>
+                    <tr>
+                        <td>Júlio</td>
+                        <td>40 Anos</td>
+                        <td>Rio de Janeiro</td>
+                    </tr>
+                    <tr>
+                        <td>Clara</td>
+                        <td>19 Anos</td>
+                        <td>São Paulo</td>
+                    </tr>
+                    <tr>
+                        <td>Roberto</td>
+                        <td>21 Anos</td>
+                        <td>Curitiba</td>
+                    </tr>
+                    <tr>
+                        <td>Érica</td>
+                        <td>23 Anos</td>
+                        <td>Fortaleza</td>
+                    </tr>
+                    <tr>
+                        <td>Geraldo</td>
+                        <td>37 Anos</td>
+                        <td>Porto Alegre</td>
+                    </tr>
+                    <tr>
+                        <td>Paulo</td>
+                        <td>35 Anos</td>
+                        <td>Recife</td>
+                    </tr>
+                    <tr>
+                        <td>Sabrina</td>
+                        <td>30 Anos</td>
+                        <td>Manaus</td>
+                    </tr>
+                    <tr>
+                        <td>Heitor</td>
+                        <td>28 Anos</td>
+                        <td>Goiânia</td>
+                    </tr>
+                    <tr>
+                        <td>Jéssica</td>
+                        <td>26 Anos</td>
+                        <td>Florianópolis</td>
+                    </tr>
+                    <tr>
+                        <td>Renan</td>
+                        <td>29 Anos</td>
+                        <td>São Luís</td>
+                    </tr>
+                    <tr>
+                        <td>Thiago</td>
+                        <td>30 Anos</td>
+                        <td>São Paulo</td>
+                    </tr>
+                    <tr>
+                        <td>Cristina</td>
+                        <td>34 Anos</td>
+                        <td>Rio de Janeiro</td>
+                    </tr>
+                    <tr>
+                        <td>Mariana</td>
+                        <td>22 Anos</td>
+                        <td>Salvador</td>
+                    </tr>
+                    <tr>
+                        <td>Leonardo</td>
+                        <td>24 Anos</td>
+                        <td>Recife</td>
+                    </tr>
+                    <tr>
+                        <td>Valentina</td>
+                        <td>27 Anos</td>
+                        <td>Curitiba</td>
+                    </tr>
+                    <tr>
+                        <td>Robson</td>
+                        <td>31 Anos</td>
+                        <td>Manaus</td>
+                    </tr>
+                    <tr>
+                        <td>Murilo</td>
+                        <td>35 Anos</td>
+                        <td>Porto Alegre</td>
+                    </tr>
+                    <tr>
+                        <td>Patrícia</td>
+                        <td>38 Anos</td>
+                        <td>Belo Horizonte</td>
+                    </tr>
+                    <tr>
+                        <td>Juliana</td>
+                        <td>19 Anos</td>
+                        <td>Fortaleza</td>
+                    </tr>
+                    <tr>
+                        <td>Matheus</td>
+                        <td>25 Anos</td>
+                        <td>São Paulo</td>
+                    </tr>
+                    <tr>
+                        <td>Gabriela</td>
+                        <td>23 Anos</td>
+                        <td>Rio de Janeiro</td>
+                    </tr>
+                    <tr>
+                        <td>Fernando</td>
+                        <td>26 Anos</td>
+                        <td>Curitiba</td>
+                    </tr>
+                    <tr>
+                        <td>Luciana</td>
+                        <td>28 Anos</td>
+                        <td>Goiânia</td>
+                    </tr>
+                    <tr>
+                        <td>Marcos</td>
+                        <td>29 Anos</td>
+                        <td>Salvador</td>
+                    </tr>
+                    <tr>
+                        <td>Catarina</td>
+                        <td>32 Anos</td>
+                        <td>Recife</td>
+                    </tr>
+                    <tr>
+                        <td>Igor</td>
+                        <td>40 Anos</td>
+                        <td>Manaus</td>
+                    </tr>
+                    <tr>
+                        <td>Thais</td>
+                        <td>21 Anos</td>
+                        <td>Porto Alegre</td>
+                    </tr>
+                    <tr>
+                        <td>Eduardo</td>
+                        <td>34 Anos</td>
+                        <td>Belo Horizonte</td>
+                    </tr>
+                    <tr>
+                        <td>Priscila</td>
+                        <td>33 Anos</td>
+                        <td>São Paulo</td>
+                    </tr>
+                    <tr>
+                        <td>Bruno</td>
+                        <td>30 Anos</td>
+                        <td>Fortaleza</td>
+                    </tr>
+                    <tr>
+                        <td>Débora</td>
+                        <td>35 Anos</td>
+                        <td>Rio de Janeiro</td>
+                    </tr>
+                    <tr>
+                        <td>Rafael</td>
+                        <td>27 Anos</td>
+                        <td>Curitiba</td>
+                    </tr>
+                    <tr>
+                        <td>Luiza</td>
+                        <td>26 Anos</td>
+                        <td>Goiânia</td>
+                    </tr>
+                    <tr>
+                        <td>Fernando</td>
+                        <td>38 Anos</td>
+                        <td>São Paulo</td>
+                    </tr>
+                    <tr>
+                        <td>Samuel</td>
+                        <td>39 Anos</td>
+                        <td>Salvador</td>
+                    </tr>
+                    <tr>
+                        <td>César</td>
+                        <td>32 Anos</td>
+                        <td>Recife</td>
+                    </tr>
+                    <tr>
+                        <td>Rita</td>
+                        <td>21 Anos</td>
+                        <td>Manaus</td>
+                    </tr>
+                    <tr>
+                        <td>Júlio</td>
+                        <td>22 Anos</td>
+                        <td>Goiânia</td>
+                    </tr>
+                    <tr>
+                        <td>Vanessa</td>
+                        <td>23 Anos</td>
+                        <td>Porto Alegre</td>
+                    </tr>
+                    <tr>
+                        <td>Marcelo</td>
+                        <td>24 Anos</td>
+                        <td>Curitiba</td>
+                    </tr>
+                    <tr>
+                        <td>Matilde</td>
+                        <td>25 Anos</td>
+                        <td>São Paulo</td>
+                    </tr>
+                    <tr>
+                        <td>Felipe</td>
+                        <td>26 Anos</td>
+                        <td>Rio de Janeiro</td>
+                    </tr>
+                    <tr>
+                        <td>Marcos</td>
+                        <td>27 Anos</td>
+                        <td>Salvador</td>
+                    </tr>
+                    <tr>
+                        <td>Isabela</td>
+                        <td>28 Anos</td>
+                        <td>Fortaleza</td>
+                    </tr>
+                    <tr>
+                        <td>Alexandre</td>
+                        <td>29 Anos</td>
+                        <td>Recife</td>
+                    </tr>
+                    <tr>
+                        <td>Brenda</td>
+                        <td>30 Anos</td>
+                        <td>Manaus</td>
+                    </tr>
+                    <tr>
+                        <td>Helena</td>
+                        <td>31 Anos</td>
+                        <td>Porto Alegre</td>
+                    </tr>
+                    <tr>
+                        <td>Rogério</td>
+                        <td>32 Anos</td>
+                        <td>Goiânia</td>
+                    </tr>
+                    <tr>
+                        <td>Mariana</td>
+                        <td>33 Anos</td>
+                        <td>Curitiba</td>
+                    </tr>
+                    <tr>
+                        <td>Fábio</td>
+                        <td>34 Anos</td>
+                        <td>Rio de Janeiro</td>
+                    </tr>
+                    <tr>
+                        <td>Lucas</td>
+                        <td>35 Anos</td>
+                        <td>São Paulo</td>
+                    </tr>
+                    <tr>
+                        <td>Thales</td>
+                        <td>36 Anos</td>
+                        <td>Salvador</td>
+                    </tr>
+                    <tr>
+                        <td>Sérgio</td>
+                        <td>37 Anos</td>
+                        <td>Recife</td>
+                    </tr>
+                    <tr>
+                        <td>Patrícia</td>
+                        <td>38 Anos</td>
+                        <td>Fortaleza</td>
+                    </tr>
+                    <tr>
+                        <td>Rodrigo</td>
+                        <td>39 Anos</td>
+                        <td>Manaus</td>
+                    </tr>
+                    <tr>
+                        <td>Aline</td>
+                        <td>40 Anos</td>
+                        <td>Porto Alegre</td>
+                    </tr>
+                    
+                <!-- Outras linhas da tabela aqui -->
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        // Função para filtrar a tabela
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            let filter = this.value.toLowerCase();
+            let rows = document.querySelectorAll('#tableBody tr');
+    
+            rows.forEach(function(row) {
+                let text = row.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    row.style.display = '';  // Mostra a linha
+                } else {
+                    row.style.display = 'none';  // Esconde a linha
+                }
+            });
+        });
+    </script>
+    
+
+</body>
+</html>
